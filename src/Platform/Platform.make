@@ -36,4 +36,9 @@ OBJS += Unix/SystemLog.o
 OBJS += Unix/Thread.o
 OBJS += Unix/Time.o
 
+$(NAME): ForEachTest
+ForEachTest.o: ForEach.h ForEachTest.cpp
+ForEachTest: ForEachTest.o
+	$(CXX) -o $@ $^ $(LFLAGS)
+
 include $(BUILD_INC)/Makefile.inc
